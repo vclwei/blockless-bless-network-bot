@@ -1,0 +1,72 @@
+{
+    "2fc68fdaf2728e25da68e529c10e60ae70a77fe5c220b8ee773851273337d2e7": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M2",
+        "cpuFeatures": [],
+        "numOfProcessors": 8,
+        "totalMemory": 17179869184
+    },
+    "c6390b08ee9047223b91c633c85f2291a0ba4ed08d087f2b1e1792bd3fcea773": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M2",
+        "cpuFeatures": [],
+        "numOfProcessors": 8,
+        "totalMemory": 34359738368
+    },
+    "5b7c39b07832c7c0b992da1a1bab81c1903194ca00feee58f86fed49c7af9a48": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4",
+        "cpuFeatures": [],
+        "numOfProcessors": 10,
+        "totalMemory": 17179869184
+    },
+    "475cf12e665c2ec4243f8ef4d5e2817af8970af51ca06cf9e2893911f6025354": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4",
+        "cpuFeatures": [],
+        "numOfProcessors": 10,
+        "totalMemory": 25769803776
+    },
+    "7b394b4b2185428f8d11cacea29e8ad2b5203ad2aae0711bff68169b3a6ff161": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4",
+        "cpuFeatures": [],
+        "numOfProcessors": 10,
+        "totalMemory": 34359738368
+    },
+    "8737265b564ca87f846f564430bee343738aad417e77e52c1e778d912cf3a92b": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4 Pro",
+        "cpuFeatures": [],
+        "numOfProcessors": 12,
+        "totalMemory": 25769803776
+    },
+    "8816803118377340d553e6d053ca45c82bddc041cd438a0a4d98fe2a9f61eec7": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4 Pro",
+        "cpuFeatures": [],
+        "numOfProcessors": 12,
+        "totalMemory": 51539607552
+    },
+    "f82c0270ddfec974b800653716cd11456d555206fb26a9708cf564d4a6f3a48f": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4 Pro",
+        "cpuFeatures": [],
+        "numOfProcessors": 14,
+        "totalMemory": 25769803776
+    },
+    "e6d55a2382b9b1f96c09e091e6126b0a06cc10cc94c444c1d1cc5a09c80b4f65": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4 Pro",
+        "cpuFeatures": [],
+        "numOfProcessors": 14,
+        "totalMemory": 38654705664
+    },
+    "2bb4b9b117c393a69553b52992b7c22a7c149e9880cf7ea3d25a6b5eaaea928b": {
+        "cpuArchitecture": "arm64",
+        "cpuModel": "Apple M4 Pro",
+        "cpuFeatures": [],
+        "numOfProcessors": 14,
+        "totalMemory": 51539607552
+    }
+}
