@@ -257,6 +257,9 @@ async function runAll(initialRun = true) {
                 let ipAddress = useProxy ? await fetchIpAddress(fetch, agent) : publicIpAddress;
 
                 if (ipAddress) {
+                    const randomDelay = Math.floor(Math.random() * (100000 - 5000 + 1)) + 5000;
+                    console.log(`[${new Date().toISOString()}] 节点 ${node.nodeId} 等待 ${randomDelay/1000} 秒后启动`);
+                    await new Promise(resolve => setTimeout(resolve, randomDelay));
                     await processNode(node, agent, ipAddress, user.usertoken).catch(error => {
                         console.error(`[${new Date().toISOString()}] Error processing node ${node.nodeId}: ${error.message}`);
                     });
