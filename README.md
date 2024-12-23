@@ -42,12 +42,17 @@ This script automates network or node operations for Blockless Bless Network.
 	- Download the [extension](https://chromewebstore.google.com/detail/bless/pljbjcehnhcnofmkdbjolghdcjnmekia)
 	- after you download the extension, open `chrome://extensions/?id=pljbjcehnhcnofmkdbjolghdcjnmekia`
   	- Enable `Developer mode` in top right, then press `service worker`, or you can right click the extension windows and use `inspect/inspect element` too. You will see new tab open.
-    ![image](https://github.com/user-attachments/assets/63151405-cd49-4dff-9eec-a787a9aa3144)
+  	![image](https://github.com/user-attachments/assets/63151405-cd49-4dff-9eec-a787a9aa3144)
 	- Go to `network` tab, then open the `Bless extension` and login to your account.
   	- After you login to your account, search name with your pubkey (example : `12D3xxxx`), open and copy the `pubkey` and `hardwareid`
-![image](https://github.com/user-attachments/assets/70bcb0c6-9c47-4c81-9bf4-a55ab912fba6)
-5. If you want to use `proxy`, you can add in the config file for each nodeid.
-6. Put all data of `usertoken`, `nodeid` and `hardwareid` in the `config.js`, it will look like this:
+	![image](https://github.com/user-attachments/assets/70bcb0c6-9c47-4c81-9bf4-a55ab912fba6)
+
+5. Or you can use `gen.js` and run with this to get NodeID and HardwareID
+	```bash
+ 	node gen.js
+ 	```
+6. If you want to use `proxy`, you can add in the config file for each nodeid.
+7. Put all data of `usertoken`, `nodeid` and `hardwareid` in the `config.js`, it will look like this:
 	```bash
 	module.exports = [
 	    {

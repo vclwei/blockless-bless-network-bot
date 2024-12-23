@@ -6,7 +6,6 @@ const readline = require('readline');
 const config = require('./config');
 
 const apiBaseUrl = "https://gateway-run.bls.dev/api/v1";
-const ipServiceUrl = "https://ip-check.bless.network/";
 let useProxy;
 const MAX_PING_ERRORS = 3;
 const pingInterval = 120000;
@@ -36,15 +35,34 @@ async function promptUseProxy() {
     });
 }
 
+const commonHeaders = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5"
+};
+
 async function fetchIpAddress(fetch, agent = null) {
+    const primaryUrl = "https://ip-check.bless.network/";
+    const fallbackUrl = "https://api.ipify.org?format=json";
+
     try {
-        const response = await fetch(ipServiceUrl, { agent });
+        const response = await fetch(primaryUrl, { agent, headers: commonHeaders });
         const data = await response.json();
-        console.log(`[${new Date().toISOString()}] IP fetch response:`, data);
+        console.log(`[${new Date().toISOString()}] IP fetch response from primary URL:`, data);
         return data.ip;
     } catch (error) {
-        console.error(`[${new Date().toISOString()}] Failed to fetch IP address: ${error.message}`);
-        return null;
+        console.error(`[${new Date().toISOString()}] Failed to fetch IP address from primary URL: ${error.message}`);
+        console.log(`[${new Date().toISOString()}] Attempting to fetch IP address from fallback URL...`);
+
+        try {
+            const response = await fetch(fallbackUrl, { agent, headers: commonHeaders });
+            const data = await response.json();
+            console.log(`[${new Date().toISOString()}] IP fetch response from fallback URL:`, data);
+            return data.ip;
+        } catch (fallbackError) {
+            console.error(`[${new Date().toISOString()}] Failed to fetch IP address from fallback URL: ${fallbackError.message}`);
+            return null;
+        }
     }
 }
 
@@ -69,6 +87,7 @@ async function registerNode(nodeId, hardwareId, ipAddress, agent, authToken) {
     const response = await fetch(registerUrl, {
         method: "POST",
         headers: {
+            ...commonHeaders,
             "Content-Type": "application/json",
             Authorization: `Bearer ${authToken}`,
             "X-Extension-Version": extensionVersion
@@ -100,6 +119,7 @@ async function startSession(nodeId, agent, authToken) {
     const response = await fetch(startSessionUrl, {
         method: "POST",
         headers: {
+            ...commonHeaders,
             Authorization: `Bearer ${authToken}`,
             "X-Extension-Version": extensionVersion
         },
@@ -128,9 +148,10 @@ async function pingNode(nodeId, agent, ipAddress, authToken, pingErrorCount) {
     const response = await fetch(pingUrl, {
         method: "POST",
         headers: {
+            ...commonHeaders,
             "Content-Type": "application/json",
             Authorization: `Bearer ${authToken}`,
-            "X-Extension-Version": "0.1.5"
+            "X-Extension-Version": extensionVersion
         },
         body: JSON.stringify({
             "isB7SConnected":false
